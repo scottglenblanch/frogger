@@ -4,7 +4,7 @@ import GameBoard from './gameBoard';
 const AppPresenter = props => (
 	<div className="app"
 	>
-		App
+		Frogger Game
 		<GameBoard />
 	</div>
 );

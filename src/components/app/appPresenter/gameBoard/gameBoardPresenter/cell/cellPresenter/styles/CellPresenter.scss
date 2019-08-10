@@ -3,11 +3,12 @@
   flex: 1;
 
   &.road {
-    background: black;
+    background: black url('https://image.freepik.com/free-photo/closeup-asphalt-road-textured-gray-background_98772-34.jpg');
   }
 
   &.water {
-    background: lightblue;
+
+    background: lightblue url('https://images.pexels.com/photos/261403/pexels-photo-261403.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') ;
   }
 
   &.white-lane {
