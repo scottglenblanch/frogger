@@ -1,17 +1,16 @@
 .game-board {
-  width: 1000px;
-  height: 1000px;
+  background: green;
   display: flex;
   flex-direction: column;
   .row {
-    width: 100%;
+    height: 100px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     .col {
-      background: blue;
+      flex-direction: row;
       flex: 1;
-
+      border: 1px solid black;
     }
   }
 }

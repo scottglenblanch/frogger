@@ -1,28 +1,33 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import './styles/GameBoardPresenter.scss';
 
-const getColumns = row => row.map(col => (
-	<div className="col">
+const getColumns = (row, rowCount) => {
+	return row.map((col, colCount) => {
+		return (
+			<div className="col">
+				{rowCount} { colCount}
+			</div>
+		);
+	});
+}
 
-	</div>
-));
 
 const getRows = gameBoardMatrix =>
-	gameBoardMatrix.map(row => (
+	gameBoardMatrix.map((row, rowCount) => (
 		<div className="row">
-			{getColumns(row)}
+			{getColumns(row, rowCount)}
 		</div>
 	));
 
 const GameBoardPresenter = props => {
 
 	const { gameBoardMatrix } = props;
-	console.log('props', props, 'gameBoardMatrix', Array.isArray(gameBoardMatrix))
+
 	return (
 		<div className="game-board">
 			{getRows(gameBoardMatrix)}
 		</div>
-
 	);
 };
 
