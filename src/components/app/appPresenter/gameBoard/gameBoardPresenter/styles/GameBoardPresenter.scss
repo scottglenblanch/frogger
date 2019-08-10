@@ -10,7 +10,18 @@
     .col {
       flex-direction: row;
       flex: 1;
-      border: 1px solid black;
+
+      &.road {
+        background: black;
+      }
+
+      &.water {
+        background: lightblue;
+      }
+
+      &.white-lane {
+        border-bottom: 1px solid white;
+      }
     }
   }
 }

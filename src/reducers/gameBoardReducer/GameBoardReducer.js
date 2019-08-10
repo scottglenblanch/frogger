@@ -7,7 +7,7 @@ export const getInitialState = (rowSize, colSize) =>
 
 export default (
 	state = getInitialState(
-		10,
+		7,
 		10),
 	action
 ) => {
