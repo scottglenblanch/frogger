@@ -7,21 +7,6 @@
     display: flex;
     flex-direction: row;
 
-    .col {
-      flex-direction: row;
-      flex: 1;
 
-      &.road {
-        background: black;
-      }
-
-      &.water {
-        background: lightblue;
-      }
-
-      &.white-lane {
-        border-bottom: 1px solid white;
-      }
-    }
   }
 }

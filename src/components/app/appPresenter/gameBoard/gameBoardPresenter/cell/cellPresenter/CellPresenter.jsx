@@ -1,53 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles/CellPresenter.scss';
 
-const isRoad = (rowCount) =>
-	rowCount <= 1 || rowCount >=5;
 
-const isWater = rowCount =>
-	rowCount >= 2 && rowCount < 5;
+const getClassName = ({ isRoad, isWater, hasRoadBottomBorder}) => {
+	let className = 'cell ';
 
-const getRoadWhiteLaneOrNotClass = rowCount => {
-	const isWhiteLane = rowCount === 0 || rowCount === 5;
-
-	return isWhiteLane ? 'white-lane' : '';
-};
-
-const getRoadOrWaterClass = rowCount => {
-	if(isRoad(rowCount)) {
-		return 'road';
-	} else if(isWater(rowCount)) {
-		return 'water';
-	} else {
-		return '';
+	if(isRoad) {
+		className += 'road ';
 	}
-};
+	if(isWater) {
+		className += 'water ';
+	}
+	if(hasRoadBottomBorder) {
+		className += 'white-lane';
+	}
 
-const getCellClass = (rowCount) =>
-	`
-		col 
-		${getRoadOrWaterClass(rowCount)} 
-		${getRoadWhiteLaneOrNotClass(rowCount)}
-	`;
+	return className.trim();
+};
 
 
 const CellPresenter = props => {
 
 	const {
-		colCount,
-		rowCount
+		colPosition,
+		rowPosition
 	} = props;
 
 	return (
-		<div className={getCellClass(rowCount)}>
+		<div className={getClassName(props)}>
 
 		</div>
 	);
 };
 
 CellPresenter.propTypes = {
-	rowCount: PropTypes.number.isRequired,
-	colCount: PropTypes.number.isRequired,
+	rowPosition: PropTypes.number.isRequired,
+	colPosition: PropTypes.number.isRequired,
+	isRoad: PropTypes.bool.isRequired,
+	isWater: PropTypes.bool.isRequired,
+	hasRoadBottomBorder: PropTypes.bool.isRequired,
 };
 
 export default CellPresenter;

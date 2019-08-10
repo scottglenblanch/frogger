@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import './styles/GameBoardPresenter.scss';
 import Cell from "./cell";
 
-const getCells = (row, rowCount) => {
+const getCells = (row, rowPosition) => {
 
-	return row.map((col, colCount) => {
+	return row.map((col, colPosition) => {
 		return (
 			<Cell
-				rowCount={rowCount}
-				colCount={colCount}
+				rowPosition={rowPosition}
+				colPosition={colPosition}
 			/>
 		);
 	});
 };
 
 const getRows = gameBoardMatrix =>
-	gameBoardMatrix.map((row, rowCount) => (
+	gameBoardMatrix.map((row, rowPosition) => (
 		<div className="row">
-			{getCells(row, rowCount)}
+			{getCells(row, rowPosition)}
 		</div>
 	));
 
