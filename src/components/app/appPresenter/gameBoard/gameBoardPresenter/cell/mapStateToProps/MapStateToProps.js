@@ -1,3 +1,5 @@
+import { get } from 'lodash';
+
 const getIsRoad = ({ rowPosition }) =>
 	rowPosition <= 1 || rowPosition >=5;
 
@@ -7,9 +9,13 @@ const getIsWater = ({ rowPosition }) =>
 const getHasRoadBottomBorder = ({ rowPosition }) =>
 	rowPosition === 0 || rowPosition === 5;
 
-const getHasFrog = props => {
+const getHasFrog = (state, props) => {
 	const { rowPosition, colPosition } = props;
-	return colPosition === 5 && rowPosition === 6;
+	return get(
+		state,
+		['gameBoardMatrix', rowPosition, colPosition],
+		false
+	) === 'frog';
 };
 
 export default (state, props) => ({
@@ -17,5 +23,5 @@ export default (state, props) => ({
 	isRoad: getIsRoad(props),
 	isWater: getIsWater(props),
 	hasRoadBottomBorder: getHasRoadBottomBorder(props),
-	hasFrog: getHasFrog(props),
+	hasFrog: getHasFrog(state, props),
 });
