@@ -3,17 +3,21 @@ import PropTypes from 'prop-types';
 import './styles/CellPresenter.scss';
 
 
-const getClassName = ({ isRoad, isWater, hasRoadBottomBorder}) => {
+const getClassName = ({ isRoad, isWater, hasRoadBottomBorder, hasFrog}) => {
 	let className = 'cell ';
 
-	if(isRoad) {
-		className += 'road ';
-	}
-	if(isWater) {
-		className += 'water ';
-	}
-	if(hasRoadBottomBorder) {
-		className += 'white-lane';
+	if(hasFrog) {
+		className += 'frog ';
+	} else {
+		if(isRoad) {
+			className += 'road ';
+		}
+		if(isWater) {
+			className += 'water ';
+		}
+		if(hasRoadBottomBorder) {
+			className += 'white-lane';
+		}
 	}
 
 	return className.trim();
@@ -24,7 +28,7 @@ const CellPresenter = props => {
 
 	const {
 		colPosition,
-		rowPosition
+		rowPosition,
 	} = props;
 
 	return (
@@ -40,6 +44,7 @@ CellPresenter.propTypes = {
 	isRoad: PropTypes.bool.isRequired,
 	isWater: PropTypes.bool.isRequired,
 	hasRoadBottomBorder: PropTypes.bool.isRequired,
+	hasFrog: PropTypes.bool.isRequired,
 };
 
 export default CellPresenter;

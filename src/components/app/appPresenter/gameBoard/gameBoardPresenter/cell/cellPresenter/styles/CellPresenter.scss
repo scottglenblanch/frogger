@@ -2,6 +2,11 @@
   flex-direction: row;
   flex: 1;
 
+  &.frog {
+    background: green;
+  }
+
+
   &.road {
     background: black url('https://image.freepik.com/free-photo/closeup-asphalt-road-textured-gray-background_98772-34.jpg');
   }
