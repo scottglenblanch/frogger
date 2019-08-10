@@ -6,7 +6,7 @@ import {
   leftAction,
 } from '../../actions/keyPressedActions/KeyPressedActions';
 import { connect } from 'react-redux';
-import './App.scss';
+import AppPresenter from './appPresenter';
 
 
 export const bindActionsToWindow = ({
@@ -17,7 +17,6 @@ export const bindActionsToWindow = ({
 }) => {
   window.document.addEventListener('keydown', (e) => {
     const { code } = e;
-    console.log(code)
     switch( code ) {
       case 'ArrowUp':
         upAction();
@@ -44,10 +43,7 @@ export const App = props => {
   }, []);
 
   return (
-    <div className="app"
-    >
-      App
-    </div>
+    <AppPresenter {...props} />
   );
 };
 

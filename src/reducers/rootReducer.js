@@ -1,13 +1,5 @@
-export const getInitialState = () => ({
-
+import { combineReducers } from 'redux';
+import gameBoardReducer from './gameBoardReducer';
+export default combineReducers({
+	gameBoardMatrix: gameBoardReducer,
 });
-
-export default (state = getInitialState(), action) => {
-
-	console.log(action);
-
-	return {
-		...state,
-	};
-
-}
